@@ -69,6 +69,18 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+     <script type="module"> 
+import { logEvent } from "https://www.gstatic.com/firebasejs/12.4.0/firebase
+analytics.js"; 
+const trackButton = document.getElementById("trackButton"); 
+trackButton.addEventListener("click", () => { 
+logEvent(analytics, 'button_clicked', {  
+button_name: 'TrackButton' 
+}); 
+console.log("Event logged: button_clicked"); 
+}); 
+</script> 
+
 </script>
    
 </head>
@@ -90,6 +102,7 @@
                 <h1>Elevate Your Fitness Journey</h1>
                 <p>Premium fitness equipment for every goal.<br>Fast shipping across the US.</p>
                 <a href="products.html" class="cta-btn">Shop Now</a>
+                 <button id="trackButton">Tracker Button</button>
             </div>
             
         </section>
